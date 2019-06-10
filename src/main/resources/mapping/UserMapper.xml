@@ -15,5 +15,8 @@
     <select id="getUserById" resultType="com.example.entity.User">
         select * from user1 where uid = #{id} and password = #{pass}
     </select>
+    <select id="getStudentList" resultType="com.example.entity.Student">
+        select * from student
+    </select>
 
 </mapper>

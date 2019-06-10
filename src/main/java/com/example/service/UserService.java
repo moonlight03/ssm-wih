@@ -17,4 +17,7 @@ public class UserService {
     public User Sel(int id){
         return userMapper.Sel(id);
     }
+    public User getUserById(Integer id,String pass){
+        return userMapper.getUserById(id, pass);
+    }
 }

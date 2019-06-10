@@ -1,17 +1,17 @@
 package com.example.entity;
 
 public class Student {
-    private Integer sid;
+    private String sid;
     private String sname;
     private String gender;
-    private Integer classid;
+    private String classid;
     private String email;
 
-    public Integer getSid() {
+    public String getSid() {
         return sid;
     }
 
-    public void setSid(Integer sid) {
+    public void setSid(String sid) {
         this.sid = sid;
     }
 
@@ -31,11 +31,11 @@ public class Student {
         this.gender = gender;
     }
 
-    public Integer getClassid() {
+    public String getClassid() {
         return classid;
     }
 
-    public void setClassid(Integer classid) {
+    public void setClassid(String classid) {
         this.classid = classid;
     }
 

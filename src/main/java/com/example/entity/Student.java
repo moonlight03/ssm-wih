@@ -7,6 +7,11 @@ public class Student {
     private String classid;
     private String email;
 
+    public Student(String sid, String sname) {
+        this.sid = sid;
+        this.sname = sname;
+    }
+
     public String getSid() {
         return sid;
     }

@@ -34,6 +34,8 @@ public class ExcelUtils {
                 Cell nameCell = row.getCell(0);
                 nameCell.setCellType(Cell.CELL_TYPE_STRING);
                 String name = nameCell.getStringCellValue();
+
+
                 Student student = new Student(id,name);
                 list.add(student);
             }

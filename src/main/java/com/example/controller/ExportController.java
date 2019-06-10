@@ -16,7 +16,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * @Author 周湘博
+ */
 @Controller
 @RequestMapping(value = "/fanxing/import")
 public class ExportController {
@@ -29,6 +31,7 @@ public class ExportController {
         list.add(new Student("3", "黄奔驰"));
         List<Student> students = studentService.selectAllStu();
 
+        // Todo 这里是导出所有学生数据，你写一个selectAll，查出来这个list
         //第二步：使用POI将数据写到Excel文件中
         //在内存中创建一个Excel文件
         HSSFWorkbook workbook = new HSSFWorkbook();

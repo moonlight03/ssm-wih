@@ -1,14 +1,14 @@
 package com.example.utils;
 
 import sun.misc.BASE64Encoder;
-
 import java.io.IOException;
 import java.net.URLEncoder;
-
+/**
+ * @Author 周湘博
+ */
 public class FileUtils {
 		/**
 		 * 下载文件时，针对不同浏览器，进行附件名的编码
-		 * 
 		 * @param filename
 		 *            下载文件名
 		 * @param agent

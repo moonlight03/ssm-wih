@@ -9,13 +9,14 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Author:李成达
  */
 @CrossOrigin
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/student")
 public class StudentController {
 
     /**
@@ -38,6 +39,15 @@ public class StudentController {
     @ResponseBody
     public int getStuCount() throws IOException {
        return studentService.getStuCount();
+    }
+
+    @RequestMapping(value = "/pageQuery", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Map<String,String>> pageQuery(@RequestParam(value = "sname") String sname,
+                         @RequestParam(value = "cid") String classid,
+                         @RequestParam(value = "cur")Integer currentPage,
+                         @RequestParam(value = "size")Integer pagesize) throws IOException {
+        return studentService.pageQuery(sname, classid, currentPage, pagesize);
     }
 
 

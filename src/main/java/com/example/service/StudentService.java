@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 
 @Service
@@ -23,5 +24,9 @@ public class StudentService {
 
     public List<Student> selectAllStu(){
         return studentMapper.selectAllStu();
+    }
+
+    public List<Map<String,String>> pageQuery(String sname,String classid,Integer currentPage,Integer pagesize){
+        return studentMapper.pageQuery(sname, classid, currentPage, pagesize);
     }
 }

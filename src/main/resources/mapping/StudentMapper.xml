@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.mapper.UserMapper">
+<mapper namespace="com.example.mapper.StudentMapper">
 <select id="selectAllStu" resultType="com.example.entity.Student">
     select * from student
 </select>
@@ -8,6 +8,16 @@
     insert into student (sid,sname,gender,classid,email) values (#{sid},#{sname},#{gender},#{classid},#{email})
 </insert>
 <select id="getStuCount" parameterType="com.example.entity.Student">
-    select count (*) from student
+    select count(*) from student
+</select>
+<select id="pageQuery" resultType="java.util.HashMap">
+    select s.sid,s.sname,s.gender,s.classid,s.email,c.classname from student s left join class c on s.classid = c.classid where 1=1
+    <if test="sname != null and sname != ''">
+        and s.sname like concat('%',#{sname},'%')
+    </if>
+    <if test="classid != null and classid != ''">
+        and s.classid = #{classid}
+    </if>
+    limit #{currentPage},#{pagesize}
 </select>
 </mapper>

@@ -7,11 +7,11 @@
 <insert id="saveStudentList" parameterType="com.example.entity.Student" >
     insert into student (sid,sname,gender,classid,email) values (#{sid},#{sname},#{gender},#{classid},#{email})
 </insert>
-<select id="getStuCount" parameterType="com.example.entity.Student">
+<select id="getStuCount" resultType="java.lang.Integer">
     select count(*) from student
 </select>
 <select id="pageQuery" resultType="java.util.HashMap">
-    select s.sid,s.sname,s.gender,s.classid,s.email,c.classname from student s left join class c on s.classid = c.classid where 1=1
+    select s.sid,s.sname,s.gender,s.classid,s.email,c1.classname from student s left join class c1 on s.classid = c1.classid where 1=1
     <if test="sname != null and sname != ''">
         and s.sname like concat('%',#{sname},'%')
     </if>

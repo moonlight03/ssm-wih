@@ -16,9 +16,8 @@ import java.util.Map;
  */
 @CrossOrigin
 @RestController
-@RequestMapping("/student")
+@RequestMapping("/stu")
 public class StudentController {
-
     /**
      * @Author 周湘博
      * @param excelFile
@@ -26,19 +25,20 @@ public class StudentController {
      */
     @Autowired
     StudentService studentService;
-    @RequestMapping(value = "/batchInsertShops", method = RequestMethod.POST)
+    @RequestMapping(value = "/import", method = RequestMethod.POST)
     @ResponseBody
-    public void batchInsert(@RequestParam("excelFile") MultipartFile excelFile) throws IOException {
+    public String batchInsert(@RequestParam("excelFile") MultipartFile excelFile) throws IOException {
+
         String name = excelFile.getOriginalFilename();
-        //TODO 业务逻辑，通过excelFile.getInputStream()，处理Excel文件
         List<Student> list =  ExcelUtils.excelToShopIdList(excelFile.getInputStream());
-        // TODO 你在这里调用service把这个list存起来
         studentService.save(list);
+        return "OK";
     }
-    @RequestMapping(value = "/getStuCount", method = RequestMethod.POST)
-    @ResponseBody
-    public int getStuCount() throws IOException {
-       return studentService.getStuCount();
+
+    @RequestMapping(value = "/getStuTotal", method = RequestMethod.GET)
+    public Integer getStuCount() {
+        int stuCount = studentService.getStuCount();
+        return stuCount;
     }
 
     @RequestMapping(value = "/pageQuery", method = RequestMethod.GET)
@@ -47,7 +47,8 @@ public class StudentController {
                          @RequestParam(value = "cid") String classid,
                          @RequestParam(value = "cur")Integer currentPage,
                          @RequestParam(value = "size")Integer pagesize) throws IOException {
-        return studentService.pageQuery(sname, classid, currentPage, pagesize);
+        List<Map<String, String>> maps = studentService.pageQuery(sname, classid, currentPage, pagesize);
+        return maps;
     }
 
 

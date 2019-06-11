@@ -29,7 +29,7 @@ public class ExportController {
         List<Student> list = new ArrayList<>();
         list.add(new Student("1", "周湘博"));
         list.add(new Student("3", "黄奔驰"));
-        List<Student> students = studentService.selectAllStu();
+//        List<Student> students = studentService.selectAllStu();
 
         // Todo 这里是导出所有学生数据，你写一个selectAll，查出来这个list
         //第二步：使用POI将数据写到Excel文件中

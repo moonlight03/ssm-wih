@@ -26,6 +26,7 @@ public class StudentService {
     }
 
     public List<Map<String,String>> pageQuery(String sname,String classid,Integer currentPage,Integer pagesize){
+        currentPage = (currentPage-1) * pagesize;
         return studentMapper.pageQuery(sname, classid, currentPage, pagesize);
     }
 }

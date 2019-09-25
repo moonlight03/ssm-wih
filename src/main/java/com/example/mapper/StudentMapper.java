@@ -11,11 +11,8 @@ import java.util.Map;
 
 @Mapper
 public interface StudentMapper {
-
-    //Page<Student> getStudentList();
     void saveStudentList(Student student);
     int getStuCount();
     List<Student> selectAllStu();
     List<Map<String,String>> pageQuery(String sname,String classid,Integer currentPage,Integer pagesize);
-
-        }
+}

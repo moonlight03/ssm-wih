@@ -1,10 +1,5 @@
 package com.example.entity;
- 
-/**
- * @Author:wjup
- * @Date: 2018/9/26 0026
- * @Time: 14:39
- */
+
 public class User {
     private Integer uid;
     private String username;

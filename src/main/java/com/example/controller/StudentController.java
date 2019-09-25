@@ -11,9 +11,6 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @Author:李成达
- */
 @CrossOrigin
 @RestController
 @RequestMapping("/stu")

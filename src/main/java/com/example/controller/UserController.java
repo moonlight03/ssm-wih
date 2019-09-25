@@ -7,9 +7,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * @Author:李成达
- */
 @CrossOrigin
 @RestController
 @RequestMapping("/user")

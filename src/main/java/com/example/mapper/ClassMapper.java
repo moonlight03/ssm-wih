@@ -7,5 +7,5 @@ import java.util.List;
 
 @Mapper
 public interface ClassMapper {
-    public List<StuCla> selectAllStuCla();//123
+    public List<StuCla> selectAllStuCla();//12345
 }

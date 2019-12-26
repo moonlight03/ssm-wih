@@ -29,4 +29,12 @@ public class StudentService {
         currentPage = (currentPage-1) * pagesize;
         return studentMapper.pageQuery(sname, classid, currentPage, pagesize);
     }
+
+    public void saveone(Student student) {
+        studentMapper.saveStudentList(student);
+    }
+
+    public void updateOne(Student student) {
+        studentMapper.update(student);
+    }
 }

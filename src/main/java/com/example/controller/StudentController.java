@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -31,7 +32,25 @@ public class StudentController {
         studentService.save(list);
         return "OK";
     }
+    @RequestMapping(value = "/insertone", method = RequestMethod.POST)
+    @ResponseBody
+    public String InsertOne(@RequestParam(value = "sid") String sid,
+                            @RequestParam(value = "sname") String sname,
+                            @RequestParam(value = "classid") String classid,
+                            @RequestParam(value = "gender") String gender,
+                            @RequestParam(value = "email") String email
+                            ){
+        studentService.saveone(new Student(sid,sname,classid,gender,email));
+        return "OK";
+    }
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    @ResponseBody
+    public String UpdateOne(@RequestParam("student") Student student){
 
+        studentService.updateOne(student);
+
+        return "OK";
+    }
     @RequestMapping(value = "/getStuTotal", method = RequestMethod.GET)
     public Integer getStuCount() {
         int stuCount = studentService.getStuCount();

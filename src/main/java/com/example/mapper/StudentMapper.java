@@ -1,8 +1,6 @@
 package com.example.mapper;
 
 import com.example.entity.Student;
-import com.github.pagehelper.Page;
-import org.apache.ibatis.annotations.MapKey;
 import org.apache.ibatis.annotations.Mapper;
 
 
@@ -15,4 +13,5 @@ public interface StudentMapper {
     int getStuCount();
     List<Student> selectAllStu();
     List<Map<String,String>> pageQuery(String sname,String classid,Integer currentPage,Integer pagesize);
+    void update(Student student);
 }

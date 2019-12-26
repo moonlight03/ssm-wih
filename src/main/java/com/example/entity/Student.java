@@ -7,6 +7,14 @@ public class Student {
     private String classid;
     private String email;
 
+    public Student(String sid, String sname, String gender, String classid, String email) {
+        this.sid = sid;
+        this.sname = sname;
+        this.gender = gender;
+        this.classid = classid;
+        this.email = email;
+    }
+
     public Student(String sid, String sname) {
         this.sid = sid;
         this.sname = sname;

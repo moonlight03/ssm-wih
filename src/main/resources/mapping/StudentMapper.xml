@@ -1,23 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mapper.StudentMapper">
-<select id="selectAllStu" resultType="com.example.entity.Student">
+    <select id="selectAllStu" resultType="com.example.entity.Student">
     select * from student
 </select>
-<insert id="saveStudentList" parameterType="com.example.entity.Student" >
-    insert into student (sid,sname,gender,classid,email) values (#{sid},#{sname},#{gender},#{classid},#{email})
+    <insert id="saveStudentList" parameterType="com.example.entity.Student">
+    insert into student (sid,sname,gender,classid,email,phone) values (#{sid},#{sname},#{gender},#{classid},#{email},#{phone})
 </insert>
-<select id="getStuCount" resultType="java.lang.Integer">
+    <select id="getStuCount" resultType="java.lang.Integer">
     select count(*) from student
 </select>
-<select id="pageQuery" resultType="java.util.HashMap">
-    select s.sid,s.sname,s.gender,s.classid,s.email,c1.classname from student s left join class c1 on s.classid = c1.classid where 1=1
-    <if test="sname != null and sname != ''">
-        and s.sname like concat('%',#{sname},'%')
-    </if>
-    <if test="classid != null and classid != ''">
-        and s.classid = #{classid}
-    </if>
-    limit #{currentPage},#{pagesize}
-</select>
+    <select id="pageQuery" resultType="java.util.HashMap">
+        select s.sid,s.sname,s.gender,s.classid,s.email,c1.classname as classname from student s left join class c1 on s.classid =
+        c1.classid where 1=1
+        <if test="sname != null and sname != ''">
+            and s.sname like concat('%',#{sname},'%')
+        </if>
+        <if test="classid != null and classid != ''">
+            and s.classid = #{classid}
+        </if>
+        limit #{currentPage},#{pagesize}
+    </select>
+    <update id="updateOne" parameterType="com.example.entity.Student">
+ update student SET sname=#{sname},gender=#{gender},
+        classid=#{classid},email=#{email},phone=#{phone}
+ where sid=#{sid}
+</update>
+    <delete id="deleteOne" parameterType="java.lang.String">
+        delete from student where sid = #{sid}
+    </delete>
 </mapper>

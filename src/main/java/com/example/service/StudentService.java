@@ -1,12 +1,10 @@
 package com.example.service;
-
 import com.example.entity.Student;
 import com.example.mapper.StudentMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Map;
-
 
 @Service
 public class StudentService {
@@ -35,6 +33,12 @@ public class StudentService {
     }
 
     public void updateOne(Student student) {
-        studentMapper.update(student);
+        studentMapper.updateOne(student);
+    }
+
+    public void delete(String[] split) {
+        for(String sid : split){
+            studentMapper.deleteOne(sid);
+        }
     }
 }

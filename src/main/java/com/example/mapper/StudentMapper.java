@@ -13,5 +13,7 @@ public interface StudentMapper {
     int getStuCount();
     List<Student> selectAllStu();
     List<Map<String,String>> pageQuery(String sname,String classid,Integer currentPage,Integer pagesize);
-    void update(Student student);
+    void updateOne(Student student);
+
+    void deleteOne(String sid);
 }

@@ -6,13 +6,23 @@ public class Student {
     private String gender;
     private String classid;
     private String email;
+    private String phone;
 
-    public Student(String sid, String sname, String gender, String classid, String email) {
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public Student(String sid, String sname, String gender, String classid, String email, String phone) {
         this.sid = sid;
         this.sname = sname;
         this.gender = gender;
         this.classid = classid;
         this.email = email;
+        this.phone = phone;
     }
 
     public Student(String sid, String sname) {

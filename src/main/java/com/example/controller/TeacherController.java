@@ -14,7 +14,7 @@ import java.util.Map;
 public class TeacherController {
 
     @Autowired
-    TeacherService TeacherService;
+    TeacherService TeacherService;//
 
     @RequestMapping(value = "/insertone", method = RequestMethod.POST)
     @ResponseBody

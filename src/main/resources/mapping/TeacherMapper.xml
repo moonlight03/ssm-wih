@@ -4,7 +4,7 @@
     <select id="selectAllTea" resultType="com.example.entity.Teacher">
     select * from student
 </select>
-    <insert id="saveTeacherList" parameterType="com.example.entity.Teacher">
+    <insert id="saveTeacher" parameterType="com.example.entity.Teacher">
     insert into teacher (tid,tname,gender,email,phone) values (#{tid},#{tname},#{gender},#{email},#{phone})
 </insert>
     <select id="getTeaCount" resultType="java.lang.Integer">

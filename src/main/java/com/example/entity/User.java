@@ -4,6 +4,15 @@ public class User {
     private Integer uid;
     private String username;
     private String password;
+    private Integer level;
+
+    public Integer getLevel() {
+        return level;
+    }
+
+    public void setLevel(Integer level) {
+        this.level = level;
+    }
 
     public Integer getUid() {
         return uid;

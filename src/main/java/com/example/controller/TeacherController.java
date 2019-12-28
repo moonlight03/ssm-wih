@@ -16,7 +16,6 @@ public class TeacherController {  //
     @Autowired
     TeacherService TeacherService;
 
-//    git config --global -l
     @RequestMapping(value = "/insertone", method = RequestMethod.POST)
     @ResponseBody
     public String InsertOne(@RequestParam(value = "tid") String tid,

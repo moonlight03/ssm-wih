@@ -15,11 +15,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/stu")
 public class StudentController {
-    /**
-     * @Author 周湘博
-     * @param excelFile
-     * @throws IOException
-     */
+
     @Autowired
     StudentService studentService;
 

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.TeacherMapper">
+    <select id="selectAllTea" resultType="com.example.entity.Teacher">
+    select * from student
+</select>
+    <insert id="saveTeacherList" parameterType="com.example.entity.Teacher">
+    insert into teacher (tid,tname,gender,email,phone) values (#{tid},#{tname},#{gender},#{email},#{phone})
+</insert>
+    <select id="getTeaCount" resultType="java.lang.Integer">
+    select count(*) from teacher
+</select>
+    <select id="pageQuery" resultType="java.util.HashMap">
+        select t.tid,t.tname,t.gender,t.email,t.phone from teacher t
+        where 1=1
+        <if test="tname != null and tname != ''">
+            and t.tname like concat('%',#{tname},'%')
+        </if>
+        limit #{currentPage},#{pagesize}
+    </select>
+    <update id="updateOne" parameterType="com.example.entity.Teacher">
+ update teacher SET tname=#{tname},gender=#{gender},
+        email=#{email},phone=#{phone}
+ where tid=#{tid}
+</update>
+    <delete id="deleteOne" parameterType="java.lang.String">
+        delete from teacher where tid = #{tid}
+    </delete>
+</mapper>

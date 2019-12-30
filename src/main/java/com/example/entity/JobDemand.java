@@ -31,6 +31,7 @@ public class JobDemand {
     }
 
     public JobDemand(String id, String context, Date deadline) {
+        this.jid = id;
         this.context = context;
         this.deadline = deadline;
     }

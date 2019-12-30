@@ -4,7 +4,7 @@
 
 
     <insert id="save" parameterType="com.example.entity.JobDemand">
-        insert into jobdemand (context,deadline) values(#{context},#{deadline})
+        insert into jobdemand (jid,context,deadline) values(#{jid},#{context},#{deadline})
     </insert>
 
 

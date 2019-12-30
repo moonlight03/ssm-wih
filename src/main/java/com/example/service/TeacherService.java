@@ -39,4 +39,11 @@ public class TeacherService {
             TeacherMapper.deleteOne(sid);
         }
     }
+
+    public List<Map<String, String>> getItsClass() {
+        return TeacherMapper.getItsClass();
+    }
+    public List<Map<String, String>> getItsClassById(String id) {
+        return TeacherMapper.getItsClassById(id);
+    }
 }

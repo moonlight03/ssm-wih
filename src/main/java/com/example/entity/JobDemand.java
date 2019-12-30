@@ -1,16 +1,16 @@
 package com.example.entity;
 
 import java.util.Date;
-public class Job {
-    private Integer jid;
+public class JobDemand {
+    private String jid;
     private String context;
     private Date deadline;
 
-    public Integer getJid() {
+    public String getJid() {
         return jid;
     }
 
-    public void setJid(Integer jid) {
+    public void setJid(String jid) {
         this.jid = jid;
     }
 
@@ -30,8 +30,7 @@ public class Job {
         this.deadline = deadline;
     }
 
-    public Job(Integer jid, String context, Date deadline) {
-        this.jid = jid;
+    public JobDemand(String id, String context, Date deadline) {
         this.context = context;
         this.deadline = deadline;
     }

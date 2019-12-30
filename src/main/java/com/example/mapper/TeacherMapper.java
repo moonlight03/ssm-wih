@@ -15,4 +15,7 @@ public interface TeacherMapper {
     void updateOne(Teacher Teacher);
 
     void deleteOne(String sid);
+
+    List<Map<String, String>> getItsClass();
+    List<Map<String, String>> getItsClassById(String id);
 }

@@ -9,7 +9,17 @@
 </insert>
     <select id="getTeaCount" resultType="java.lang.Integer">
     select count(*) from teacher
-</select>
+    </select>
+
+    <select id="getItsClass" resultType="java.util.HashMap">
+      select classid as cid , classname as cname from class
+    </select>
+
+    <select id="getItsClassById" resultType="java.util.HashMap">
+     select c.classid as cid , c.classname as cname from class c
+       left join tcrecord t on c.classid = t.cid where t.tid = #{id}
+    </select>
+
     <select id="pageQuery" resultType="java.util.HashMap">
         select t.tid,t.tname,t.gender,t.email,t.phone from teacher t
         where 1=1

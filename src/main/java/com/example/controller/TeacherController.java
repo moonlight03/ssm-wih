@@ -60,5 +60,20 @@ public class TeacherController {  //
         return maps;
     }
 
+    @RequestMapping(value = "/getItsClass", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Map<String, String>> getItsClass()  {
+        List<Map<String, String>> maps;
+            maps = TeacherService.getItsClass();
+
+        return maps;
+    }
+    @RequestMapping(value = "/getItsClassById", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Map<String, String>> getItsClassById(@RequestParam(value = "id") String id)  {
+        List<Map<String, String>> maps = TeacherService.getItsClassById(id);
+        return maps;
+    }
+
 
 }

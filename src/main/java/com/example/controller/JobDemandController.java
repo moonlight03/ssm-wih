@@ -24,7 +24,7 @@ public class JobDemandController {
                             @RequestParam(value = "context") String context,
                             @RequestParam(value = "tid") String tid)  {
         String jid = System.currentTimeMillis()+"";
-        jobDemandService.save(new JobDemand(jid,context,new Date().));
+        jobDemandService.save(new JobDemand(jid,context,new Date()));
         String cidss[] = cids.split(",");
         for(String cid : cidss){
             jobRecordService.save(new JobRecord(tid,cid,jid));

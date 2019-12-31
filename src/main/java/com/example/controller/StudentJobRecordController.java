@@ -1,8 +1,5 @@
 package com.example.controller;
-import com.example.entity.JobDemand;
-import com.example.entity.JobRecord;
-import com.example.service.JobDemandService;
-import com.example.service.JobRecordService;
+
 import com.example.service.StudentJobRecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -11,15 +8,15 @@ import java.util.Map;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/studentjobrecord")
+@RequestMapping("/sjrecord")
 public class StudentJobRecordController {
     @Autowired
     StudentJobRecordService studentJobRecordService;
 
-    @RequestMapping(value = "/getsjrecordById", method = RequestMethod.GET)
+    @RequestMapping(value = "/getById", method = RequestMethod.GET)
     @ResponseBody
-    public List<Map<String, String>> getSJRecordById(@RequestParam(value = "sid") String sid)  {
-        List<Map<String, String>> maps = studentJobRecordService.getSJRecordById(sid);
+    public List<Map<String, Object>> getSJRecordById(@RequestParam(value = "sid") String sid)  {
+        List<Map<String, Object>> maps = studentJobRecordService.getSJRecordById(sid);
         return maps;
     }
 }

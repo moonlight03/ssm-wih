@@ -7,11 +7,11 @@
         insert into sjrecord (sid,jid,status,tname) values(#{sid},#{jid},#{status},#{tname})
     </insert>
 
-    <select id="findStudentByCid" resultType="java.util.List">
-        select sid from student where classid = cid
+    <select id="findStudentByCid" resultType="java.lang.String">
+        select sid from student where classid = #{cid}
     </select>
     <select id="findStudentBySid" resultType="java.util.HashMap">
-        select sj.tname as tname,sj.status,jd.context as context from sjrecord sj
+        select sj.tname as tname,sj.status,jd.context as context, sj.jid as jid from sjrecord sj
         left join jobdemand jd on sj.jid = jd.jid
         where sid = #{sid}
     </select>

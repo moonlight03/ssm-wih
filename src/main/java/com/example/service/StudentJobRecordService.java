@@ -20,7 +20,7 @@ public class StudentJobRecordService {
         }
     }
 
-    public List<Map<String, String>> getSJRecordById(String sid) {
+    public List<Map<String, Object>> getSJRecordById(String sid) {
        return studentJobRecordMapper.findStudentBySid(sid);
     }
 }

@@ -9,5 +9,5 @@ import java.util.Map;
 public interface StudentJobRecordMapper {
     void save(StudentJobRecord jdr);
     List<String> findStudentByCid(String cid);
-    List<Map<String, String>> findStudentBySid(String sid);
+    List<Map<String, Object>> findStudentBySid(String sid);
 }

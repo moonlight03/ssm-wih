@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.StudentJobRecordMapper">
+
+
+    <insert id="save" parameterType="com.example.entity.StudentJobRecord">
+        insert into sjrecord (sid,jid,status,tname) values(#{sid},#{jid},#{status},#{tname})
+    </insert>
+
+    <select id="findStudentByCid" resultType="java.util.List">
+        select sid from student where classid = cid
+    </select>
+    <select id="findStudentBySid" resultType="java.util.HashMap">
+        select sj.tname as tname,sj.status,jd.context as context from sjrecord sj
+        left join jobdemand jd on sj.jid = jd.jid
+        where sid = #{sid}
+    </select>
+
+
+</mapper>

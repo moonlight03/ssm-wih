@@ -6,7 +6,4 @@
     <insert id="save" parameterType="com.example.entity.JobDemand">
         insert into jobdemand (jid,context,deadline) values(#{jid},#{context},#{deadline})
     </insert>
-
-
-
 </mapper>

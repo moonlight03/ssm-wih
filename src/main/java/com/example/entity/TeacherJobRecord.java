@@ -1,12 +1,12 @@
 package com.example.entity;
 
-public class JobRecord {
+public class TeacherJobRecord {
     private Integer jreid;
     private String tid;
     private String cid;
     private String jid;
 
-    public JobRecord(String tid, String cid, String jid) {
+    public TeacherJobRecord(String tid, String cid, String jid) {
         this.tid = tid;
         this.cid = cid;
         this.jid = jid;

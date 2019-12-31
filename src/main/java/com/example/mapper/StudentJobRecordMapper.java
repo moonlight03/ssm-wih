@@ -10,4 +10,6 @@ public interface StudentJobRecordMapper {
     void save(StudentJobRecord jdr);
     List<String> findStudentByCid(String cid);
     List<Map<String, Object>> findStudentBySid(String sid);
+
+    void updateBySidAndJid(String sid, String jid, String path);
 }

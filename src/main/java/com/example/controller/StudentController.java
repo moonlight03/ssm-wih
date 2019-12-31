@@ -21,10 +21,10 @@ public class StudentController {
 
     @RequestMapping(value = "/import", method = RequestMethod.POST)
     @ResponseBody
-    public String batchInsert(@RequestParam("excelFile") MultipartFile excelFile) throws IOException {
+    public String batchInsert(@RequestParam("file") MultipartFile file) throws IOException {
 
-        String name = excelFile.getOriginalFilename();
-        List<Student> list = ExcelUtils.excelToShopIdList(excelFile.getInputStream());
+        String name = file.getOriginalFilename();
+        List<Student> list = ExcelUtils.excelToShopIdList(file.getInputStream());
         studentService.save(list);
         return "OK";
     }

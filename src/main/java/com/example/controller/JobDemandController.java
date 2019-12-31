@@ -1,8 +1,8 @@
 package com.example.controller;
 import com.example.entity.JobDemand;
-import com.example.entity.JobRecord;
+import com.example.entity.TeacherJobRecord;
 import com.example.service.JobDemandService;
-import com.example.service.JobRecordService;
+import com.example.service.TeacherJobRecordService;
 import com.example.service.StudentJobRecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +16,7 @@ public class JobDemandController {
     @Autowired
     JobDemandService jobDemandService;
     @Autowired
-    JobRecordService jobRecordService;
+    TeacherJobRecordService jobRecordService;
     @Autowired
     StudentJobRecordService studentJobRecordService;
 
@@ -31,7 +31,7 @@ public class JobDemandController {
         jobDemandService.save(new JobDemand(jid,context,new Date()));
         String cidss[] = cids.split(",");
         for(String cid : cidss){
-            jobRecordService.save(new JobRecord(tid,cid,jid));
+            jobRecordService.save(new TeacherJobRecord(tid,cid,jid));
             studentJobRecordService.save(jid,cid,tname);
         }
     }

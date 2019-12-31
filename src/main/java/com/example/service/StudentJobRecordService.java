@@ -23,4 +23,8 @@ public class StudentJobRecordService {
     public List<Map<String, Object>> getSJRecordById(String sid) {
        return studentJobRecordMapper.findStudentBySid(sid);
     }
+
+    public void updateBySidAndJid(String sid, String jid, String path) {
+        studentJobRecordMapper.updateBySidAndJid(sid,jid,path);
+    }
 }

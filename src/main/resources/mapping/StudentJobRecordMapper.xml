@@ -11,10 +11,20 @@
         select sid from student where classid = #{cid}
     </select>
     <select id="findStudentBySid" resultType="java.util.HashMap">
-        select sj.tname as tname,sj.status,jd.context as context, sj.jid as jid from sjrecord sj
+        select
+        sj.tname as tname,
+        sj.status as status,
+        sj.jid as jid ,
+        sj.path as path,
+        jd.context as context,
+        jd.jobtype as j_type
+        from sjrecord sj
         left join jobdemand jd on sj.jid = jd.jid
         where sid = #{sid}
     </select>
-
+    <update id="updateBySidAndJid">
+       update sjrecord SET path=#{path},status = 1
+       where sid=#{sid} and jid=#{jid}
+    </update>
 
 </mapper>

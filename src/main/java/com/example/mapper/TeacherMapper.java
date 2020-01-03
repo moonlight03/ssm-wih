@@ -22,4 +22,6 @@ public interface TeacherMapper {
     List<Map<String, String>> getJobByCIdAndTid(String cid, String tid);
 
     List<Map<String, Object>> getStudentJobByJidAndCid(String cid, String jid);
+
+    void goToUpdateStuScore(String sid, String jid, String score);
 }

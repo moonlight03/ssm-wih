@@ -93,6 +93,15 @@ public class TeacherController {  //
         return maps;
     }
 
-
+    @RequestMapping(value = "/goToUpdateStuScore", method = RequestMethod.POST)
+    @ResponseBody
+    public String goToUpdateStuScore(
+            @RequestParam(value = "sid") String sid,
+            @RequestParam(value = "jid") String jid,
+            @RequestParam(value = "score") String score
+            )  {
+        TeacherService.goToUpdateStuScore(sid,jid,score);
+        return "OK";
+    }
 
 }

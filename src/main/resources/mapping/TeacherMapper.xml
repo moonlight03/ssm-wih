@@ -32,7 +32,10 @@
         left join sjrecord sj on s.sid=sj.sid
         where s.classid = #{cid} and sj.jid = #{jid}
     </select>
-
+    <update id="goToUpdateStuScore">
+        update sjrecord SET score=#{score}, status=2
+        where jid=#{jid} and sid=#{sid}
+    </update>
 
     <select id="pageQuery" resultType="java.util.HashMap">
         select t.tid,t.tname,t.gender,t.email,t.phone from teacher t

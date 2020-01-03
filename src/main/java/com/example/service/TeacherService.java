@@ -54,4 +54,8 @@ public class TeacherService {
     public List<Map<String, Object>> getStudentJobByJidAndCid(String cid, String jid) {
         return TeacherMapper.getStudentJobByJidAndCid(cid,jid);
     }
+
+    public void goToUpdateStuScore(String sid, String jid, String score) {
+        TeacherMapper.goToUpdateStuScore(sid,jid,score);
+    }
 }

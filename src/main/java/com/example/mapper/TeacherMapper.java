@@ -18,4 +18,8 @@ public interface TeacherMapper {
 
     List<Map<String, String>> getItsClass();
     List<Map<String, String>> getItsClassById(String id);
+
+    List<Map<String, String>> getJobByCIdAndTid(String cid, String tid);
+
+    List<Map<String, Object>> getStudentJobByJidAndCid(String cid, String jid);
 }

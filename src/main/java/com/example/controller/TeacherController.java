@@ -75,5 +75,24 @@ public class TeacherController {  //
         return maps;
     }
 
+    @RequestMapping(value = "/getJobByCIdAndTid", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Map<String, String>> getJobByCIdAndTid(
+            @RequestParam(value = "cid") String cid,
+            @RequestParam(value = "tid") String tid)  {
+        List<Map<String, String>> maps = TeacherService.getJobByCIdAndTid(cid,tid);
+        return maps;
+    }
+
+    @RequestMapping(value = "/getStudentJobByJidAndCid", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Map<String, Object>> getStudentJobByJidAndCid(
+            @RequestParam(value = "cid") String cid,
+            @RequestParam(value = "jid") String jid)  {
+        List<Map<String, Object>> maps = TeacherService.getStudentJobByJidAndCid(cid,jid);
+        return maps;
+    }
+
+
 
 }

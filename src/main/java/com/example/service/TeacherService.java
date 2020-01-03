@@ -46,4 +46,12 @@ public class TeacherService {
     public List<Map<String, String>> getItsClassById(String id) {
         return TeacherMapper.getItsClassById(id);
     }
+
+    public List<Map<String, String>> getJobByCIdAndTid(String cid, String tid) {
+        return TeacherMapper.getJobByCIdAndTid(cid,tid);
+    }
+
+    public List<Map<String, Object>> getStudentJobByJidAndCid(String cid, String jid) {
+        return TeacherMapper.getStudentJobByJidAndCid(cid,jid);
+    }
 }

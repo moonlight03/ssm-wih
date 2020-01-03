@@ -20,6 +20,20 @@
        left join tcrecord t on c.classid = t.cid where t.tid = #{id}
     </select>
 
+    <select id="getJobByCIdAndTid" resultType="java.util.HashMap">
+        select jd.jid as value ,jd.context as label from jobdemand jd
+        left join jobrecord jr on jd.jid=jr.jid
+        where jr.cid = #{cid} and jr.tid = #{tid}
+    </select>
+    <select id="getStudentJobByJidAndCid" resultType="java.util.HashMap">
+        select s.sname as sname ,s.sid as sid ,sj.score as score , sj.path as path ,
+        sj.status as status,sj.jid as jid
+        from student s
+        left join sjrecord sj on s.sid=sj.sid
+        where s.classid = #{cid} and sj.jid = #{jid}
+    </select>
+
+
     <select id="pageQuery" resultType="java.util.HashMap">
         select t.tid,t.tname,t.gender,t.email,t.phone from teacher t
         where 1=1
